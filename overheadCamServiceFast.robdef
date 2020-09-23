@@ -1,0 +1,45 @@
+
+service edu.rpi.camService
+
+
+option version 0.8
+
+
+
+struct Image
+    field int32 width
+    field int32 height
+    field int32 channels
+    field uint8[] data
+end struct
+
+
+
+struct camParams
+
+    field double[2] fc
+
+    field double[2] cc
+    field double[5] kc
+
+end struct 
+
+
+
+struct detectedMarkers
+    field double[] ids
+    field double[] Tmat
+end struct
+
+object ohcam
+
+    function void setCamParams(double[2] fc, double[2] cc, double[5] kc)
+
+    function camParams getCamParams()
+
+    function void setMarkerSize(double markerSize)
+
+    function double getMarkerSize()
+
+    function detectedMarkers getDetectedMarkers()
+end object
